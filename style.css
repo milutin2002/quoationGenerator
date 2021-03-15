@@ -1,0 +1,39 @@
+h1{
+  font-size:60px;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 100px 100px 100px;
+  background-color: #78c4d4;
+}
+h2{
+  font-size:50px;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 100px 100px 100px;
+  background-color: #8f4f4f;
+}
+.radioButton{
+  font-size: 30px;
+  margin: 0px 100px 100px 100px;
+}
+select{
+  content-box;
+}
+form{
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 100px 0px 100px;
+}
+.GenerateButton{
+  width: 200px;
+  height: 50px;
+}
+.Quoete{
+  font-size: 30px;
+  font-style: italic;
+}
+.naslovi{
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+  background-color: #f2b4b4;
+}
