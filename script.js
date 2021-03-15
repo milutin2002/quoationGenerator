@@ -19,28 +19,41 @@ function generateColor(){
 //generisanje citata
 function generateQuote(Islatin){
   if(Islatin){
+    console.log(latin);
     return latin[Math.floor(Math.random()*latin.length)];
   }
   else{
     return bookbeg[Math.floor(Math.random()*bookbeg.length)]+","+bookmid[Math.floor(Math.random()*bookmid.length)]+","+bookend[Math.floor(Math.random()*bookend.length)];
   }
 }
-//stavljanjnje elemenata u article
-function addQuotes(quotes,Islatin){
+//dodavanje latinice
+function addLatin(){
   let result=[];
   let color=generateColor();
   for (var i = 0; i < numQuotes.value; i++) {
     let child=document.createElement('p');
     child.classList.add('Quoete');
-    newQuote=generateQuote(Islatin);
+    newQuote=generateQuote(true);
     child.innerHTML="<p>“"+newQuote+"”</p>";
     child.style.color=color;
-    const index=quotes.indexOf(child.textContent);
-    quotes.splice(index,1);
-    result.push(child.textContent);
+    const index=latin.indexOf(newQuote);
+    latin.splice(index,1);
+    result.push(newQuote);
     article.appendChild(child);
   }
-  return quotes.concat(result);
+  return latin.concat(result);
+}
+//dodavanje knjige
+function addBook(){
+  let color=generateColor();
+  for (var i = 0; i < numQuotes.value; i++) {
+    let child=document.createElement('p');
+    child.classList.add('Quoete');
+    newQuote=generateQuote(false);
+    child.innerHTML="<p>“"+newQuote+"”</p>";
+    child.style.color=color;
+    article.appendChild(child);
+  }
 }
 //brisanje prethodnih citata
 function removeChildren(){
@@ -55,10 +68,10 @@ generateButton.addEventListener('click',function($event){
   $event.preventDefault();
   removeChildren();
   if (bookButton.checked) {
-    book=addQuotes(book,false);
+    addBook();
   }
   else if(latinButton.checked){
-    latin=addQuotes(latin,true);
+    latin=addLatin();
   }
   else{
     alert("You didn't choose type of quotes");
